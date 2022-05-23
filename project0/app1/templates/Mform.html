@@ -1,0 +1,37 @@
+<h1>Upload Form</h1>
+
+<form action="/app1/aftersubmit/" method="post"> {% csrf_token %}
+
+    {{ myform.as_p }}
+
+    <input type="submit" value="Upload">
+
+</form>
+
+<br>
+
+{% if message %}
+<div>{{ message }}</div>
+{% endif %}
+
+<hr>
+
+<h3>Uploaded Names</h3>
+
+{% for namee in names %}
+
+<ul>
+
+    <li>{{ namee.name }}</li>
+
+</ul>
+
+{% empty %}
+
+<ul><li>Nothing There!</li></ul>
+
+{% endfor %}
+
+<br>
+
+<a href="/app1/logout/">Logout</a>
